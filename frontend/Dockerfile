@@ -1,10 +1,10 @@
 # Build Angular app
-FROM node:20-alpine as build
+FROM node:18-alpine AS build
 WORKDIR /app
 COPY package*.json ./
 RUN npm ci
 COPY . .
-RUN npm run build --prod
+RUN npm run build --configuration production
 
 # Serve the angular app with Nginx
 FROM nginx:1.23-alpine
