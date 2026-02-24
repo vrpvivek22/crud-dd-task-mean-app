@@ -1,0 +1,45 @@
+version: "3.8"
+
+services:
+  mongo:
+    image: mongo:6
+    container_name: mongo
+    restart: always
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+
+  backend:
+    image: vivek456vk/nodejs-app:latest
+    container_name: nodejs-app-container
+    ports:
+      - "8080:8080"
+    environment:
+      - MONGO_URL=mongodb://mongo:27017/tutorialsdb
+      - MONGO_PASSWORD=${MONGO_PASSWORD}
+    depends_on:
+      - mongo
+    restart: always
+
+  frontend:
+    image: vivek456vk/angular-app:latest
+    container_name: angular-app-container
+    depends_on:
+      - backend
+    restart: always
+
+  nginx:
+    image: nginx:1.23-alpine
+    container_name: nginx-proxy
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf:ro
+    depends_on:
+      - frontend
+      - backend
+    restart: always
+
+volumes:
+  mongo-data:
