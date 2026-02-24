@@ -12,7 +12,7 @@ WORKDIR /usr/share/nginx/html
 RUN rm -rf ./*
 
 # copy the built angular app from build stage
-COPY --from=build /app/dist/crud-dd-task-mean-app/browser .
+COPY --from=build  /app/dist/angular-15-crud .
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]
