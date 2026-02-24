@@ -23,14 +23,13 @@ services:
     restart: always
 
   frontend:
-  image: vivek456vk/angular-app:latest
-  container_name: angular-app-container
-  expose:
-    - "80"
-  depends_on:
-    - backend
-  restart: always
-
+    image: vivek456vk/angular-app:latest
+    container_name: angular-app-container
+    expose:
+      - "80"
+    depends_on:
+      - backend
+    restart: always
 
   nginx:
     image: nginx:1.23-alpine
