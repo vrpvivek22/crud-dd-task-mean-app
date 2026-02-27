@@ -74,7 +74,7 @@ Nginx (Port 80)
 
 ## Ngnix
 
-![ngnix](screenshots/Nginx%20setup%20and%20infrastructure%20details/nginx.png)
+![nginx](screenshots/Nginx%20setup%20and%20infrastructure%20details/nginx.png)
 
 ---
 
