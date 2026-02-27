@@ -72,7 +72,7 @@ Nginx (Port 80)
 
 ![security-group](screenshots/Nginx%20setup%20and%20infrastructure%20details/aws-2.png)
 
-## Ngnix
+## Nginx
 
 ![nginx](screenshots/Nginx%20setup%20and%20infrastructure%20details/nginx.png)
 
